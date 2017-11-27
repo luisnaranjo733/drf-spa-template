@@ -2,6 +2,7 @@
 A DRF - Vue template project that allows user to view shopping lists.
 
 * Backend
+  * Python 3.6
   * Django
   * Django Rest Framework
   * Custom Django Admin site
