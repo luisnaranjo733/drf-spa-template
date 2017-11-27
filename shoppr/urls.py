@@ -18,12 +18,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf.urls import include
 
-from shoppr.api.admin import admin_site
-from shoppr.frontend import views
+from api.admin import admin_site
+from frontend import views
 
 urlpatterns = [
     url(r'^$', views.index),
-    url(r'^api/', include('shoppr.api.urls')),
+    url(r'^api/', include('api.urls')),
     url(r'^admin/', admin_site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')), # Login/logout views for DRF Browsable APIs
 ]

@@ -40,8 +40,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     # Custom apps
-    'shoppr.api',
-    'shoppr.frontend'
+    'api',
+    'frontend'
 ]
 
 MIDDLEWARE = [
