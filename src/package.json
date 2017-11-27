@@ -1,0 +1,15 @@
+{
+  "name": "shoppr",
+  "version": "1.0.0",
+  "description": "A shopping todo list web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luisnaranjo733/drf-spa-template/tree/master"
+  },
+  "author": "Luis Naranjo",
+  "license": "ISC"
+}
