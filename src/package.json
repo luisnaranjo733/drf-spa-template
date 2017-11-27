@@ -11,5 +11,16 @@
     "url": "https://github.com/luisnaranjo733/drf-spa-template/tree/master"
   },
   "author": "Luis Naranjo",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "webpack": "^3.8.1",
+    "webpack-bundle-tracker": "^0.2.0"
+  },
+  "dependencies": {}
 }
