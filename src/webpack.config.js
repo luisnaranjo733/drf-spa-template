@@ -9,7 +9,7 @@ module.exports = {
     //the base directory (absolute path) for resolving the entry option
     context: __dirname,
     entry: [
-        './assets/index'
+        './assets/js/index'
     ],
     
     output: {

@@ -6,7 +6,7 @@ import {render} from "react-dom";
 class App extends Component {
 
     render() {
-        return <h1>Hello, React!</h1>;
+        return <h1>Hello, React!!</h1>;
     }
 }
 
