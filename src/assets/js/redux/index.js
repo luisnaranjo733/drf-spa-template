@@ -1,6 +1,6 @@
 // actions
 
-export const setShoppingItems = shoppingItems => {
+export const setShoppingItems = shopping_items => {
     return {
         type: 'SET_SHOPPING_ITEMS',
         shopping_items
@@ -10,7 +10,7 @@ export const setShoppingItems = shoppingItems => {
 // reducers
 
 let initialState = {
-    shopping_items: ['echo dot']
+    shopping_items: []
 };
 
 const reducer = (state = initialState, action) => {

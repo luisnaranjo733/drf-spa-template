@@ -4,6 +4,7 @@ import {
   } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setShoppingItems } from '../redux'
+import axios from 'axios';
 
 class HomePage extends Component {
   constructor() {
@@ -13,7 +14,12 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    // fetch stuff from backend via api
+    console.log('componentDidMount');
+    let outerThis = this;
+    axios.get('/api/shopping/').then(response => {
+        console.log(response);
+        outerThis.props.dispatch(setShoppingItems(response.data));
+    });
     
   }
 
