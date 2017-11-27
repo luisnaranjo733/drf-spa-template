@@ -13,8 +13,9 @@ A DRF - Vue template project that allows user to view shopping lists.
   * No prod server
     
 * Frontend
-  * View framework (Vue w/ Webpack/ES6)
+  * View framework (React)
   * State manager (Redux)
+  * Router (react-router)
   * Networking library (Axios)
   * Session based auth support (leveraging Django's built in session framework)
   * / redirects to /login?next=/
