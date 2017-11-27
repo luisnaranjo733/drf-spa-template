@@ -1,5 +1,5 @@
-# drf-vue-template
-A DRF - Vue template project that allows user to view shopping lists.
+# drf-spa-template
+A DRF - SPA template project that allows user to view shopping lists.
 
 * Backend
   * Python 3.6
