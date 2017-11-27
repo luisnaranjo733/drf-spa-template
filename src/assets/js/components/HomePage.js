@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {
     Link
   } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { setShoppingItems } from '../redux'
 
 class HomePage extends Component {
   constructor() {
@@ -16,6 +18,9 @@ class HomePage extends Component {
   }
 
   render() {
+      console.log('shopping_items: ');
+      this.props.shopping_items.forEach(item => console.log(item));
+
     return (
       <div className="container">
         <h1>HomePage</h1>
@@ -31,6 +36,12 @@ class HomePage extends Component {
   }
 }
 
+function mapStateToProps(state) {
+    return {
+      shopping_items: state.shopping_items
+    }
+  }
+  
 
 
-export default HomePage;
+  export default connect(mapStateToProps)(HomePage);
