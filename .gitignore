@@ -1,4 +1,6 @@
 *.sqlite3
+node_modules/
+src/assets/bundles/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
