@@ -1,0 +1,1 @@
+export const SHOPPING_LIST_ENDPOINT = '/api/shopping/';
