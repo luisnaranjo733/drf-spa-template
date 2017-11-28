@@ -1,28 +1,35 @@
 "use strict";
 
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import { render } from "react-dom";
-=======
 import {render} from "react-dom";
+
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import reducer from './redux'
+
 import { AppContainer } from 'react-hot-loader'
->>>>>>> hotloader
 
 import App from './App';
 
-// render(<AppContainer><App /></AppContainer>, document.getElementById("app"));
+let store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-const render_helper = Component => {
+
+const render_dom = Component => {
     render(
-      <AppContainer>
-        <Component />
-      </AppContainer>,
+      <Provider store={store}>
+        <AppContainer>
+          <Component />
+        </AppContainer>
+      </Provider>,
       document.getElementById('app')
     );
   }
   
-  render_helper(App)
+  render_dom(App)
   
   if (module.hot) {
-    module.hot.accept('./App', () => { render_helper(App) })
+    module.hot.accept('./App', () => { render_dom(App) })
   }
