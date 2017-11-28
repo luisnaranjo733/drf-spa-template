@@ -9,6 +9,7 @@ module.exports = {
     //the base directory (absolute path) for resolving the entry option
     context: __dirname,
     entry: [
+        'react-hot-loader/patch',
         `webpack-dev-server/client?http://${ip}:3000`,
         'webpack/hot/only-dev-server',
         './assets/js/index'
