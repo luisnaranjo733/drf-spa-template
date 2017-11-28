@@ -1,9 +1,9 @@
 from django.conf.urls import url
-from rest_framework import routers
 
 from . import views
 
-router = routers.SimpleRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'shopping', views.ShoppingListViewSet)
-urlpatterns = router.urls
+urlpatterns = [
+    url(r'^shopping/$', views.ShoppingItemsEndpoint.as_view()),
+    url(r'^shopping/(?P<pk>[0-9]+)/$', views.ShoppingItemsDetailEndpoint.as_view()),
+
+]
