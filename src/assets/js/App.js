@@ -15,15 +15,14 @@ import AboutPage from './components/AboutPage'
 let store = createStore(
     reducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  );
+);
 
 const App = () => (
     <Provider store={store}>
         <Router>
             <div>
-                <h1>Common header</h1>
+                <h1>Shoppr</h1>
                 <Route exact path="/" component={HomePage} />
-                <Route path="/home" component={HomePage} />
                 <Route path="/about" component={AboutPage} />
             </div>
         </Router>

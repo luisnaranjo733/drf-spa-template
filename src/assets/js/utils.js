@@ -1,6 +1,5 @@
 import * as Cookies from "js-cookie";
-
-// Replace these promises with axios
+import axios from 'axios';
 
 export function getRequest(url) {
     let csrf_token = Cookies.get('csrftoken');
@@ -11,9 +10,9 @@ export function getRequest(url) {
         headers: {
             "X-CSRFToken": csrf_token,
         }
-    }).then(function(response) {
+    }).then(function (response) {
         return response.json();
-    }).catch(function(ex) {
+    }).catch(function (ex) {
         console.log(`Request to ${url} failed`, ex);
     });
 }
@@ -28,9 +27,9 @@ export function postRequest(url, data) {
             "X-CSRFToken": csrf_token,
         },
         body: data
-    }).then(function(response) {
+    }).then(function (response) {
         return response.json();
-    }).catch(function(ex) {
+    }).catch(function (ex) {
         console.log(`Request to ${url} failed`, ex);
     });
 }
