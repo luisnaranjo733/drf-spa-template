@@ -3,10 +3,11 @@ import {
   Link
 } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { setShoppingItems } from '../redux'
+import { setShoppingItems, appendShoppingItem } from '../redux'
 import axios from 'axios';
 
 import { SHOPPING_LIST_ENDPOINT } from '../endpoints'
+import { postRequest } from '../utils'
 
 class HomePage extends Component {
 
@@ -37,11 +38,14 @@ class HomePage extends Component {
       item_name: this.state.new_shopping_item_name
     };
 
-    axios.post(SHOPPING_LIST_ENDPOINT, data).then(response => {
-      console.log(response);
-    }).catch(error => {
-      console.log(error);
-    });
+    postRequest(SHOPPING_LIST_ENDPOINT, data)
+      .then(response => {
+        console.log(response);
+        this.props.dispatch(appendShoppingItem(response.data));
+      }).catch(error => {
+        console.log('error');
+        console.log(error);
+      });
   }
 
 

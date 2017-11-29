@@ -17,8 +17,7 @@ class ShoppingItemsEndpoint(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        print(request.POST)
-        shopping_item_name = request.POST.get('item_name', None)
+        shopping_item_name = request.data.get('item_name', None)
 
         if not shopping_item_name:
             response = Response(status=status.HTTP_400_BAD_REQUEST)
@@ -26,9 +25,12 @@ class ShoppingItemsEndpoint(APIView):
             return response
 
         shopping_item = ShoppingItem.objects.create(
-            item_name=item_name,
+            item_name=shopping_item_name,
             item_owner=request.user
         )
+
+        serializer = ShoppingItemSerializer(shopping_item)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 class ShoppingItemsDetailEndpoint(APIView):
     def get(self, request, pk):
