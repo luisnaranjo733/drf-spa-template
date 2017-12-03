@@ -1,21 +1,32 @@
 var path = require('path')
 var webpack = require('webpack')
 var BundleTracker = require('webpack-bundle-tracker')
+// const isReachable = require('is-reachable');
+
+let ip = 'localhost';
 
 module.exports = {
     //the base directory (absolute path) for resolving the entry option
     context: __dirname,
-    entry: ['./assets/js/index'],
+    entry: [
+        'react-hot-loader/patch',
+        `webpack-dev-server/client?http://${ip}:3000`,
+        'webpack/hot/only-dev-server',
+        './assets/js/index'
+    ],
     
     output: {
         // where you want your compiled bundle to be stored
         path: path.resolve('./assets/bundles/'), 
         // naming convention webpack should use for your files
-        filename: '[name]-[hash].js'
+        filename: '[name]-[hash].js', 
+        publicPath: `http://${ip}:3000/assets/bundles/`
     },
     
     plugins: [
-        new BundleTracker({filename: './webpack-stats.json'})
+        new BundleTracker({filename: './webpack-stats.json'}), 
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(), 
     ],
     
     module: {
@@ -24,6 +35,9 @@ module.exports = {
                 test: /\.jsx?$/, 
                 exclude: /node_modules/, 
                 use: [
+                    {
+                        loader: "react-hot-loader/webpack"
+                    },
                     {
                         loader: "babel-loader",
                         options: {
