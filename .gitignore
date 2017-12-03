@@ -2,6 +2,7 @@
 node_modules/
 src/assets/bundles/*
 webpack-stats.json
+static/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
