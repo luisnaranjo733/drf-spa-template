@@ -6,8 +6,7 @@ const common = require('./webpack.common.js');
 let ip = 'localhost';
 
 module.exports = merge(common, {
-    // devtool: 'inline-source-map',
-
+    
     entry: [
         'react-hot-loader/patch',
         `webpack-dev-server/client?http://${ip}:3000`,
