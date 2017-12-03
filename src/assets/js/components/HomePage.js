@@ -53,7 +53,11 @@ class HomePage extends Component {
     return (
       <div className="container">
         <h2>List of shopping items</h2>
-        <p>Development mode? "{process.env.NODE_ENV !== 'production'}"</p>
+        
+        {process.env.NODE_ENV !== 'production' &&
+          <p>Development mode</p>
+        }
+
         <ul>
           {this.props.shopping_items.map((shopping_item, index) => (
             <li key={index}>{shopping_item.item_name}</li>
