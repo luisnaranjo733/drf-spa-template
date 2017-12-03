@@ -2,11 +2,13 @@ var webpack = require('webpack')
 var WebpackDevServer = require('webpack-dev-server')
 var config = require('./webpack.config.dev')
 
+console.log(config);
+
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   watchOptions: {
     poll: true,
-    ignored: /node_modules/
+    ignored: '/node_modules/'
   },
   hot: true,
   inline: true,
@@ -17,5 +19,5 @@ new WebpackDevServer(webpack(config), {
     console.log(err)
   }
 
-  console.log('Listening at 0.0.0.0:3000')
+  console.log(`Listening at ${config.output.publicPath}`);
 })
