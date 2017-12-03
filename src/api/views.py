@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 
@@ -9,6 +11,7 @@ from rest_framework.views import APIView
 from .serializers import UserSerializer, ShoppingItemSerializer
 from .models import ShoppingItem
 
+logger = logging.getLogger(__name__)
 
 class ShoppingItemsEndpoint(APIView):
     def get(self, request):
@@ -22,7 +25,11 @@ class ShoppingItemsEndpoint(APIView):
         if not shopping_item_name:
             response = Response(status=status.HTTP_400_BAD_REQUEST)
             response['error'] = 'Missing POST param "item_name"'
+            logger.warn('Failed to create a shopping item due to missing post param')
             return response
+
+        logger.debug('Succesfully created a shopping item')
+        logger.warn('Failed to create a shopping item due to missing post param')
 
         shopping_item = ShoppingItem.objects.create(
             item_name=shopping_item_name,

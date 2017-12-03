@@ -132,6 +132,39 @@ STATIC_ROOT = '/static'
 
 # User defined stuff below
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '[%(levelname)s] [%(name)s] [%(funcName)s] [%(asctime)s]:  %(message)s'
+        },
+        'simple': {
+            'format': '[%(levelname)s] [%(funcName)s]: %(message)s'
+        }
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'log.txt'),
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'api': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+            'propagate': True
+        }
+    }
+}
+
 LOGIN_URL = '/admin/login/'
 
 STATICFILES_DIRS = (
